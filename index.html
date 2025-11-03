@@ -6,23 +6,11 @@
   <style>
     body { font-family: Arial, sans-serif; background: #fafafa; margin: 20px; }
     h1 { text-align: center; color: #007bff; }
-    table { width: 100%; border-collapse: collapse; margin: 20px 0; background: white; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
-    th, td { padding: 10px; border-bottom: 1px solid #ddd; }
-    th { background: #007bff; color: white; }
-    tr:hover { background: #f1f1f1; }
+    iframe { width: 100%; height: 90vh; border: none; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-radius: 10px; }
   </style>
 </head>
 <body>
-  <h1>📹 Datos en la Nube - Cámaras API</h1>
-  <div id="contenido">Cargando datos...</div>
-
-  <script>
-    async function cargar() {
-      const res = await fetch("https://api-camaras.onrender.com"); // 👉 cambia por tu URL en Render
-      const html = await res.text();
-      document.getElementById("contenido").innerHTML = html;
-    }
-    cargar();
-  </script>
+  <h1>📹 Datos en la Nube - API Cámaras</h1>
+  <iframe src="https://api-camaras-web.onrender.com/"></iframe>
 </body>
 </html>
