@@ -2,89 +2,27 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>📹 Panel de Datos - API Cámaras</title>
+  <title>📹 Panel Cámaras - Cloud</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #fafafa;
-      margin: 20px;
-      color: #333;
-    }
-    h1 {
-      text-align: center;
-      color: #007bff;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 20px 0;
-      background: white;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-    th, td {
-      padding: 10px;
-      text-align: left;
-      border-bottom: 1px solid #ddd;
-    }
-    th {
-      background-color: #007bff;
-      color: white;
-    }
-    tr:hover {
-      background-color: #f1f1f1;
-    }
-    .section-title {
-      color: #333;
-      background: #eee;
-      padding: 10px;
-      border-radius: 5px;
-    }
+    body { font-family: Arial, sans-serif; background: #fafafa; margin: 20px; }
+    h1 { text-align: center; color: #007bff; }
+    table { width: 100%; border-collapse: collapse; margin: 20px 0; background: white; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+    th, td { padding: 10px; border-bottom: 1px solid #ddd; }
+    th { background: #007bff; color: white; }
+    tr:hover { background: #f1f1f1; }
   </style>
 </head>
 <body>
-  <h1>📹 Panel de Datos - API Cámaras</h1>
+  <h1>📹 Datos en la Nube - Cámaras API</h1>
+  <div id="contenido">Cargando datos...</div>
 
-  <h2 class="section-title">👥 Clientes</h2>
-  <table>
-    <thead>
-      <tr><th>ID</th><th>Nombre</th><th>Correo</th><th>Teléfono</th><th>Dirección</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>1</td><td>Juan Pérez</td><td>juan@example.com</td><td>3205551111</td><td>Calle 10 #12</td></tr>
-      <tr><td>2</td><td>Ana Gómez</td><td>ana@example.com</td><td>3102223333</td><td>Carrera 7 #8</td></tr>
-    </tbody>
-  </table>
-
-  <h2 class="section-title">🏢 Proveedores</h2>
-  <table>
-    <thead>
-      <tr><th>ID</th><th>Nombre</th><th>Contacto</th><th>Teléfono</th><th>Correo</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>1</td><td>TechVision</td><td>Carlos Ruiz</td><td>3001112222</td><td>ventas@techvision.com</td></tr>
-    </tbody>
-  </table>
-
-  <h2 class="section-title">🎥 Cámaras</h2>
-  <table>
-    <thead>
-      <tr><th>ID</th><th>Marca</th><th>Modelo</th><th>Ubicación</th><th>Estado</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>1</td><td>Hikvision</td><td>HX-2000</td><td>Entrada principal</td><td>Activa</td></tr>
-    </tbody>
-  </table>
-
-  <h2 class="section-title">🚨 Eventos</h2>
-  <table>
-    <thead>
-      <tr><th>ID</th><th>Descripción</th><th>Cámara</th><th>Fecha</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>1</td><td>Movimiento detectado</td><td>Entrada principal</td><td>2025-11-02</td></tr>
-    </tbody>
-  </table>
+  <script>
+    async function cargar() {
+      const res = await fetch("https://api-camaras.onrender.com"); // 👉 cambia por tu URL en Render
+      const html = await res.text();
+      document.getElementById("contenido").innerHTML = html;
+    }
+    cargar();
+  </script>
 </body>
 </html>
